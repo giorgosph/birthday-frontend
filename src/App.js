@@ -1,15 +1,17 @@
-import './App.css';
 import { Route, Routes } from 'react-router-dom';
 
 import HomeRoute from './Routes/HomeRoute';
 import AuthRoute from './Routes/AuthRoute';
+import AuthContextProvider from './utils/context';
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<HomeRoute />}/>
-      <Route path="/auth" element={<AuthRoute />}/>
-    </Routes>
+    <AuthContextProvider>
+      <Routes>
+        <Route path="/" element={<HomeRoute />}/>
+        <Route path="/auth" element={<AuthRoute />}/>
+      </Routes>
+    </AuthContextProvider>
   );
 }
 

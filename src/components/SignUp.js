@@ -2,8 +2,9 @@ import React from 'react';
 import useSignUp from '../hooks/useSignUp';
 
 const SignUp = () => {
-  const { isDisabled, handleSignup, set } = useSignUp();
-  
+  const { handleSignup, set, response } = useSignUp();
+  const { data, error, loading } = response;
+
   return (
     <div style={styles.container}>
       <div style={styles.inputView}>
@@ -47,8 +48,8 @@ const SignUp = () => {
         />
       </div>
       <button
-        disabled={isDisabled[0]}
-        style={{ ...styles.signupBtn, opacity: isDisabled[1] }}
+        disabled={loading}
+        style={{ ...styles.signupBtn, opacity: loading ? 0.4 : 1 }}
         onClick={handleSignup}
       >
         SIGN UP

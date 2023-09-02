@@ -1,11 +1,20 @@
-import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../utils/context";
+
+import Home from "../components/Home";
+import LoggedHome from "../components/LoggedHome";
 
 function HomeRoute() {
+  const authContext = useContext(AuthContext)
+
   return (
     <>
       <h1>Welcome to the Birthday Celebrating Web App</h1>
-      <p>Log in or create a new account to start celebrating with us</p>
-      <Link to={"/auth"}><button>Log in/Sign up</button></Link>
+      {authContext.isAuthenticated ? (
+        <LoggedHome />
+      ) : (
+        <Home />
+      )}
     </>
   );
 }

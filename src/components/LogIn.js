@@ -2,8 +2,9 @@ import React from 'react';
 import useLogIn from '../hooks/useLogIn';
 
 const LogIn = () => {
-  const { isDisabled, setUsername, setPassword, handleLogin } = useLogIn();
-
+  const { setUsername, setPassword, handleLogin, response } = useLogIn();
+  const { error, loading } = response;
+  
   return (
     <div style={styles.container}>
       <div style={styles.inputView}>
@@ -23,8 +24,8 @@ const LogIn = () => {
         />
       </div>
       <button
-        disabled={isDisabled[0]}
-        style={{ ...styles.loginBtn, opacity: isDisabled[1] }}
+        disabled={loading}
+        style={{ ...styles.loginBtn, opacity: loading ? 0.4 : 1 }}
         onClick={handleLogin}
       >
         LOGIN
