@@ -18,5 +18,5 @@ export const api = async (type, endpoint, data=null, extraHeaders=[]) => {
 
   console.log(`Sending request to ${endpoint}`);
   const response = await axios(options);
-  return { data: response.data, code: response.status, response };
+  return { data: response?.data, code: response?.status, response };
 }

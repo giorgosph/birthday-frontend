@@ -39,6 +39,7 @@ const styles = {
     justifyContent: 'center', 
     alignItems: 'center', 
     backgroundColor: CONTENT_BACKGROUND_COLOR,
+    backdropFilter: 'blur(10)',
     color: PRIMARY_TEXT_COLOR,
     position: 'absolute',
     zIndex: 1,

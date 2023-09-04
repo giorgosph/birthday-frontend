@@ -10,6 +10,7 @@ import AuthNavBar from '../components/AuthNavBar';
 
 const AuthRoute = () => {
   const [activeTab, setActiveTab] = useState('login');
+
   const animation = useSpring({
     transform: `translateX(-${activeTab === 'login' ? 0 : window.innerWidth}px)`,
   });
@@ -18,18 +19,18 @@ const AuthRoute = () => {
 
   return (
     <div style={styles.container}>
-      <Link to={"/"}><AiOutlineClose /></Link>
+      <Link to={"/"}><AiOutlineClose style={styles.close}/></Link>
       <div style={styles.navBarWrap}>
         <AuthNavBar
           title='Log In'
           stylesBorder={styles.leftBorder}
-          color='#333'
+          active={activeTab === 'login' ? true : false}
           onPress={() => handleTabChange('login')}
         />
         <AuthNavBar
           title='Sign Up'
           stylesBorder={styles.rightBorder}
-          color='#f25f25'
+          active={activeTab === 'signup' ? true : false}
           onPress={() => handleTabChange('signup')}
         />
       </div>
@@ -51,6 +52,13 @@ const styles = {
     alignItems: 'center',
     justifyContent: 'center',
     overflow: 'hidden',
+  },
+  close: {
+    fontSize: '1.4rem',
+    color: 'white',
+    position: 'absolute',
+    left: '1rem',
+    top: '1rem',
   },
   navBarWrap: {
     display: 'flex',
