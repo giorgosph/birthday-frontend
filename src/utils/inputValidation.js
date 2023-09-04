@@ -1,13 +1,14 @@
 import { 
-  ReSpecialChars, ReSpecialCharsUsername, ReWhiteSpaces, ReSpecialCharsPass
+  ReSpecialChars, ReSpecialCharsUsername, ReWhiteSpaces, ReSpecialCharsPass, ReDate
 } from "./regex";
 
 export const validateSignUp = (data, confPassword) => {
-  const { name, surname, username, password } = data;
-  let validation;
+  const { name, surname, username, birthDate, password } = data;
+  let validation = true;
 
-  validation = validateFullName(name, surname);
-  if(validation === true) validation = validateUsername(username);
+  if(validation === true) validation = validateFullName(name, surname);
+  if(validation === true) validation = validateUsernameSignUp(username);
+  if(validation === true) validation = validateBirthDate(birthDate);
   if(validation === true) validation = validatePassword(password);
   if(validation === true) validation = matchPasswords(password, confPassword)
 
@@ -16,7 +17,7 @@ export const validateSignUp = (data, confPassword) => {
 }
 
 export const validateLogIn = (username, password) => {
-  let validation;
+  let validation = true;
 
   if(validation === true) validation = validateUsername(username);
   if(validation === true) validation = validatePassword(password);
@@ -30,9 +31,19 @@ export const validateLogIn = (username, password) => {
 /* -------------------------------------------------------------- */
 
 const validateUsername = (username) => {
-  if(!username) {
+  if(username) {
     if(username.length > 18 || username.length < 3 || ReSpecialCharsUsername.test(username))
       return "Wrong email/username or password";
+  } else return "Username is a required field!";
+  return true;
+} 
+
+const validateUsernameSignUp = (username) => {
+  if(username) {
+    if(username.length > 18 || username.length < 3)
+      return "Username must be between 3 to 18 characters";
+    if(ReSpecialCharsUsername.test(username))
+      return "Username must contain only dot (.), underscore (_), letters and numbers";
   } else return "Username is a required field!";
   return true;
 } 
@@ -44,6 +55,14 @@ const validateFullName = (name, surname) => {
   } else return "Your Name and Surname are required"; 
   return true;
 }
+
+const validateBirthDate = (birthDate) => {
+  if(birthDate) {
+    if(!ReDate.test(birthDate))
+      return "Please enter a valid date";
+  } else return "Date of birth is a required field!";
+  return true;
+} 
 
 const validatePassword = (password) => {
   if(password) {

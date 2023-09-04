@@ -1,9 +1,10 @@
 import React from 'react';
 import useSignUp from '../hooks/useSignUp';
+import { PRIMARY_TEXT_COLOR } from '../utils/colors';
 
 const SignUp = () => {
   const { handleSignup, set, response } = useSignUp();
-  const { data, error, loading } = response;
+  const { loading } = response;
 
   return (
     <div style={styles.container}>
@@ -12,7 +13,7 @@ const SignUp = () => {
           type="text"
           style={styles.inputText}
           placeholder="Name"
-          onChange={text => set.name(text.target.value.trim().toLowerCase())}
+          onChange={event => set.name(event.target.value.trim().toLowerCase())}
         />
       </div>
       <div style={styles.inputView}>
@@ -20,7 +21,7 @@ const SignUp = () => {
           type="text"
           style={styles.inputText}
           placeholder="Surname"
-          onChange={text => set.surname(text.target.value.trim().toLowerCase())}
+          onChange={event => set.surname(event.target.value.trim().toLowerCase())}
         />
       </div>
       <div style={styles.inputView}>
@@ -28,7 +29,15 @@ const SignUp = () => {
           type="text"
           style={styles.inputText}
           placeholder="Username"
-          onChange={text => set.username(text.target.value.trim().toLowerCase())}
+          onChange={event => set.username(event.target.value.trim().toLowerCase())}
+        />
+      </div>
+      <div style={styles.inputView}>
+        <input
+          type="date"
+          style={styles.inputText}
+          placeholder="Date of Birth"
+          onChange={event => set.birthDate(event.target.value)}
         />
       </div>
       <div style={styles.inputView}>
@@ -36,7 +45,7 @@ const SignUp = () => {
           type="password"
           style={styles.inputText}
           placeholder="Password"
-          onChange={text => set.password(text.target.value)}
+          onChange={event => set.password(event.target.value)}
         />
       </div>
       <div style={styles.inputView}>
@@ -44,7 +53,7 @@ const SignUp = () => {
           type="password"
           style={styles.inputText}
           placeholder="Confirm Password"
-          onChange={text => set.confPassword(text.target.value)}
+          onChange={event => set.confPassword(event.target.value)}
         />
       </div>
       <button
@@ -52,7 +61,7 @@ const SignUp = () => {
         style={{ ...styles.signupBtn, opacity: loading ? 0.4 : 1 }}
         onClick={handleSignup}
       >
-        SIGN UP
+        Sign Up
       </button>
     </div>
   );
@@ -61,14 +70,14 @@ const SignUp = () => {
 const styles = {
   container: {
     width: '100vw',
-    height: '100%',
+    maxHeight: '100%',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    backgroundColor: '#fff',
+    overflowY: 'auto'
   },
   inputView: {
-    width: '60%',
+    width: '45%',
     backgroundColor: '#f2f2f2',
     borderRadius: 25,
     height: 50,
@@ -88,15 +97,17 @@ const styles = {
     outline: 'none',
   },
   signupBtn: {
-    width: '60%',
-    backgroundColor: '#003f5c',
-    color: '#fff',
+    width: '45%',
+    minHeight: '2.8rem',
+    fontWeight: 500,
+    fontSize: '1.2rem',
+    color: PRIMARY_TEXT_COLOR,
+    backgroundColor: '#fb5b5a',
     borderRadius: 25,
-    height: 50,
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 40,
+    marginTop: '1rem',
     marginBottom: 10,
     border: 'none',
     outline: 'none',

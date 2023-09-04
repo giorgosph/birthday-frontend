@@ -9,7 +9,7 @@ function HomeRoute() {
 
   return (
     <>
-      <h1>Welcome to the Birthday Celebrating Web App</h1>
+      <h1 style={styles.header}>Welcome to the Birthday Celebrating Web App</h1>
       {authContext.isAuthenticated ? (
         <LoggedHome />
       ) : (
@@ -17,6 +17,12 @@ function HomeRoute() {
       )}
     </>
   );
+}
+
+const styles = {
+  header: {
+    margin: 0,
+  }
 }
 
 export default HomeRoute;

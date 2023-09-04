@@ -48,14 +48,11 @@ const AuthRoute = () => {
 const styles = {
   container: {
     flex: 1,
-    width:'100%',
-    backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-    overflowX: 'hidden',
+    overflow: 'hidden',
   },
   navBarWrap: {
-    width: '100vw',
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'center',
