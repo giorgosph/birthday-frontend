@@ -45,7 +45,7 @@ const styles = {
     flexDirection: 'column',
     justifyContent: 'center', 
     alignItems: 'center', 
-    oreflowY: 'auto',
+    overflowY: 'auto',
   },
   date: {
     margin: 0

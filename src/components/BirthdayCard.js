@@ -49,13 +49,11 @@ const styles = {
     padding: '1.2rem',
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'center', 
     alignItems: 'center', 
     backgroundColor: CARD_BACKGROUND_COLOR,
     color: SECONDARY_TEXT_COLOR,
     backdropFilter: 'blur(10)',
     borderRadius: '25px',
-    zIndex: 10,
   },
   header: {
     margin: 0
