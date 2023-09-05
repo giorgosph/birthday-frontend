@@ -8,10 +8,10 @@ In the first stage follow the instructions to set up and running, the birthday-b
 1. Navigate the root folder of the repository if not already there, click on the top right side at the "code" button, and copy the HTTPS url provided.
 2. On your local PC navigate to the folder you want to add the repository and open the cmd.
 3. Run:
-    a. git init
-    b. git clone <url>
-    c. git pull
-    d. npm start
+    - git init
+    - git clone <url>
+    - git pull
+    - npm start
 4. Ensure that the backend is already up and running.
 
 ## Deployment Instructions 
