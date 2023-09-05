@@ -11,6 +11,7 @@ In the first stage follow the instructions to set up and running, the birthday-b
     - git init
     - git clone <url>
     - git pull
+    - npm i
     - npm start
 4. Ensure that the backend is already up and running.
 
