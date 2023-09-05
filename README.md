@@ -22,5 +22,11 @@ In the first stage follow the instructions to set up and running, the birthday-b
 3. Search for the frontend repository you want to deploy and give permissions to the hosting provider.
 4. If the repository is private to give permission click on the right side on "configure account" to navigate to the GitHub account and give the corresponding permissions.
 5. Select "only selected repositories", then "select repositories" select the desired repository, and click "save".
-6. At this point you should be able to connect to the repository and fill in the configurations to set up the website.
-   Note: "Build command" should be "npm run build" and "publish directory" should be "build". 
+6. At this point you should be able to connect to the repository and fill in the configurations to set up the website.\
+   Note: "Build command" should be "npm run build" and "publish directory" should be "build".
+7. Configure the navigation:
+    - Go to "Redirects/Rewrites" tab
+    - Add to the "Source" -> "/*"
+    - Add to the "Destination" -> "/"
+    - "Action" should be "Rewrite"
+    - "Save Changes"
